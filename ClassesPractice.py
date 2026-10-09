@@ -114,26 +114,27 @@ def add_student():
 
 
 def display_courses():
-    if not courses:
+    if courses:
+        for course in courses:
+            course.display_course()
+    else:
         print("No courses available.")
-    for course in courses:
-        course.display_course()
 
 
 def display_teachers():
-    if not teachers:
+    if teachers:
+        for teacher in teachers:
+            teacher.display_teacher()
+    else:
         print("No teachers available.")
-    for teacher in teachers:
-        teacher.display_teacher()
-
 
 def display_students():
-    if not students:
+    if students:
+        for student in students:
+            student.display_student()
+    else:
         print("No students available.")
-    for student in students:
-        student.display_student()
-
-
+        
 def enroll_student():
     student_id = input("Enter student ID: ")
     course_id = input("Enter course ID: ")
