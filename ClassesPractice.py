@@ -139,16 +139,22 @@ def enroll_student():
     student_id = input("Enter student ID: ")
     course_id = input("Enter course ID: ")
 
-    student = next(
-        (s for s in students if s.student_id == student_id), None
-    )
-    course = next(
-        (c for c in courses if c.course_id == course_id), None
-    )
+    student = None
+    course = None
 
-    if student is None:
+    for s in students:
+        if s.student_id == student_id:
+            student = s
+            break
+
+    for c in courses:
+        if c.course_id == course_id:
+            course = c
+            break
+
+    if student == None:
         print("Student not found.")
-    elif course is None:
+    elif course == None:
         print("Course not found.")
     else:
         student.enroll_course(course_id)
