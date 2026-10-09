@@ -2,7 +2,7 @@
 # Create at least three objects for each Book_class, Author_class, and User_class.
 # Define functions to add values to these attributes. Add display function to display objects of these classes.
 
-class Book_class(self):
+class Book_class:
     def __init__(self):
         self.book_id = ""
         self.book_title = ""
@@ -25,7 +25,7 @@ class Book_class(self):
         print("Year of Publication: " + self.year_of_publication)
 
 
-class Author_class(self):
+class Author_class:
     def __init__(self):
         self.author_id = ""
         self.author_name = ""
@@ -50,7 +50,7 @@ class Author_class(self):
         print("Phone: " + self.phone)
         print("Emailid: " + self.emailid)
 
-class User_class(self):
+class User_class:
     def __init__(self):
         self.user_id = ""
         self.name = ""
@@ -58,7 +58,6 @@ class User_class(self):
         self.address = ""
         self.phone = ""
         self.emailid = ""
-
 
     def create_user(self):
         self.user_id = input("Enter User ID: ")
@@ -81,46 +80,44 @@ authors = []
 users = []
 
 def add_book():
-    book_id = input("Enter Book ID: ")
-    book_title = input("Enter Book Title: ")
-    author_id = input("Enter Author ID: ")
-    author_name = input("Enter Author Name: ")
-    publisher = input("Enter Publisher: ")
-    year_of_publication = input("Enter Year of Publication: ")
-
-    books.append(Book_class(
-        book_id, book_title, author_id, author_name, publisher, year_of_publication
-    ))
-    print("Books Added")
+    book = Book_class()
+    book.create_book()
+    books.append(book)
+    print("Book Added")
 
 def add_author():
-    author_id = input("Enter Author ID: ")
-    author_name = input("Enter Author Name: ")
-    affiliation = input("Enter Affiliation: ")
-    country = input("Enter Country: ")
-    phone = input("Enter Phone: ")
-    emailid = input("Enter Emailid : ")
-
-    authors.append(Author_class(
-        author_id, author_name, affiliation, country, phone, emailid
-    ))
-    print("Authors Added")
-
+    author = Author_class()
+    author.create_author()
+    authors.append(author)
+    print("Author Added")
 
 def add_user():
-    user_id = input("Enter User ID: ")
-    name = input("Enter User Name: ")
-    password = input("Enter Password: ")
-    address = input("Enter Address: ")
-    phone = input("Enter Phone: ")
-    emailid = input("Enter Emailid : ")
+    user = User_class()
+    user.create_user()
+    users.append(user)
+    print("User Added")
 
-    users.append(User_class(
-        user_id, name, password, address, phone, emailid
-    ))
-    print("Users Added")
+def display_books():
+    if books:
+        for book in books:
+            book.display_book()
+    else:
+        print("No books available.")
 
-def 
+
+def display_authors():
+    if authors:
+        for author in authors:
+            author.display_author()
+    else:
+        print("No authors available.")
+
+def display_users():
+    if users:
+        for user in users:
+            user.display_user()
+    else:
+        print("No students available.")
 
 while True:
     print("Library Management System")
@@ -130,17 +127,24 @@ while True:
     print("4. Display Books")
     print("5. Display Authors")
     print("6. Display Users")
-    print("7. Add to Books Borrowed")
-    print("8. Exit")
+    print("7. Exit")
 
     choice = input("Enter your choice: ")
 
     if choice == "1":
+        add_book()
     elif choice == "2":
+        add_author()
     elif choice == "3":
+        add_user()
     elif choice == "4":
+        display_books()
     elif choice == "5":
+        display_authors()
     elif choice == "6":
+        display_users()
     elif choice == "7":
-    elif choice == "8":
+        print("Exiting Library Management System.")
+        break
     else:
+        print("Invalid choice. Please try again.")
