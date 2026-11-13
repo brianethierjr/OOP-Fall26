@@ -39,7 +39,7 @@ print("Student table created successfully!")
 
 # Faculty Table
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS Faculty_Master (
+    CREATE TABLE IF NOT EXISTS Faculty (
         fac_id INT PRIMARY KEY,
         fac_name VARCHAR(100),
         fac_department VARCHAR(100),
